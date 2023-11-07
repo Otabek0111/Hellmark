@@ -1,4 +1,4 @@
-//defines routes related to shopping cart operations
+//defines routes related to shopping cart operations //
 
 const express = require('express');
 // UPDATE WITH ACTUAL AUTH const { authenticateUser } = require('../middleware/auth'); 
