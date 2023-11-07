@@ -1,7 +1,7 @@
 // defines routes for user-related operations (registering new user, logging in, user profile operations(?))
 const router = require('express').Router();
 const userController = require('../controllers/userController');
-const { protect } = require('../middleware/auth');
+// const { protect } = require('../middleware/auth');
 
 // POST request for user registration
 router.post('/register', userController.register);
@@ -10,9 +10,9 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 
 // GET request for user profile, this should be protected so only the profile owner can access it
-router.get('/profile', protect, userController.getUserProfile);
+router.get('/profile', userController.getUserProfile);
 
 // PUT request to update user profile, also protected
-router.put('/profile', protect, userController.updateUserProfile);
+router.put('/profile', userController.updateUserProfile);
 
 module.exports = router;

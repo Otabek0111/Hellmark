@@ -1,15 +1,15 @@
 //handles authentication & passes user information to the controller methods
 const express = require('express');
-const { authenticateUser } = require('../middleware/auth');
+// INSERT LATER WITH ACTUAL AUTH const { authenticateUser } = require('../middleware/auth');
 const orderController = require('../controllers/orderController');
 
 const router = express.Router();
 
 // Middleware to protect routes that require a logged-in user
-const protect = authenticateUser;
+// const protect = authenticateUser;
 
 // Route to create a new order
-router.post('/', protect, orderController.createOrder);
+router.post('/', orderController.createOrder);
 
 // Route to get all orders of the logged-in user
 router.get('/myorders', protect, orderController.getMyOrders);

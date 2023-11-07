@@ -1,7 +1,7 @@
 //defines routes related to shopping cart operations
 
 const express = require('express');
-const { authenticateUser } = require('../middleware/auth'); 
+// UPDATE WITH ACTUAL AUTH const { authenticateUser } = require('../middleware/auth'); 
 const cartController = require('../controllers/cartController');
 
 const router = express.Router();
