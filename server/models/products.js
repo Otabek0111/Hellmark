@@ -1,5 +1,6 @@
 const { Schema, model } = require ('mongoose');
 
+//list of products for database
 const productSchema = new Schema ({
     productId: {
         type: String,
