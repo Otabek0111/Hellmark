@@ -1,6 +1,6 @@
 //handles authentication & passes user information to the controller methods
 const express = require('express');
-const { authenticateUser } = require('../middleware/authMiddleware'); // Replace with actual path and middleware name
+const { authenticateUser } = require('../middleware/auth');
 const orderController = require('../controllers/orderController');
 
 const router = express.Router();
