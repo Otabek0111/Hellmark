@@ -1,23 +1,20 @@
-//defines endpoints for actions related to proucts
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/productController');
 
-const { protect, admin } = require('../middleware/authMiddleware'); // hypothetical middleware for auth
+// Route to create a new product
+router.post('/', productController.createProduct);
 
-// GET request to get all products
-//getAllProducts function handles logic
+// Route to get all products
 router.get('/', productController.getAllProducts);
 
-// GET request to get a single product by ID
-//getProductById handles logic
+// Route to get a single product by ID
 router.get('/:id', productController.getProductById);
 
-// POST request to create a new product (Admin only
-router.post('/', protect, admin, productController.createProduct);
+// Route to update a product by ID
+router.put('/:id', productController.updateProduct);
 
-// PUT request to update a product by ID (Admin only)
-router.put('/:id', protect, admin, productController.updateProduct);
-
-// DELETE request to delete a product by ID (Admin only)
-router.delete('/:id', protect, admin, productController.deleteProduct);
+// Route to delete a product by ID
+router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;
