@@ -11,10 +11,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 // import { QUERY_MATCHUPS } from '../utils/queries';
 
 const navigation = [
-  { name: 'Product', href: '#Product' },
-  { name: 'Features', href: '#Features' },
-  { name: 'Marketplace', href: '#Marketplace' },
-  { name: 'Company', href: '#Company' },
+  { name: 'About Us', href: '/AboutUs' },
+  { name: 'Shop', href: '/Shop' },
+  { name: 'Cart', href: '/Cart' },
+  { name: 'Sign Up', href: '#Marketplace' },
+  
 ]
 
 

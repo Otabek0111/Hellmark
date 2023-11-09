@@ -7,7 +7,7 @@ import { getAllTech, createMatchup } from '../utils/api';
 // import { QUERY_TECH } from '../utils/queries';
 // import { CREATE_MATCHUP } from '../utils/mutations';
 
-const Matchup = () => {
+const AboutUs = () => {
   const [techList, setTechList] = useState([]);
   const [formData, setFormData] = useState({
     tech1: 'JavaScript',
@@ -46,9 +46,9 @@ const Matchup = () => {
         throw new Error('something went wrong!');
       }
 
-      const matchup = await res.json();
-      console.log(matchup);
-      navigate(`/matchup/${matchup._id}`);
+      const AboutUs = await res.json();
+      console.log(AboutUs);
+      navigate(`/AboutUs/${AboutUs._id}`);
     } catch (err) {
       console.error(err);
     }
@@ -95,4 +95,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default AboutUs;
