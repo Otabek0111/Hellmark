@@ -32,8 +32,8 @@ const Home = () => {
           <a href="#" className="-m-1.5 p-1.5 ">
             <span className="sr-only ">Hellmark</span>
             <img
-              className="h-8 w-auto"
-              src="https://png.pngtree.com/png-vector/20210927/ourmid/pngtree-cute-little-devil-png-image_3958091.png"
+              className="h-20 w-auto"
+              src="./src/assets/hellmark.png"
               alt=""
             />
           </a>
@@ -126,7 +126,7 @@ const Home = () => {
           }}
         />
       </div>
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div className="mx-auto max-w-3xl py-32 sm:py-48 lg:py-5">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
         </div>
         <div className="text-center">
@@ -141,6 +141,44 @@ const Home = () => {
           Disclaimer: Adult Content.{' '}
           </div>
 
+
+
+
+<div className="everythingg ">
+    <div className="carusel">
+              <div className="boxx">
+          <dir>
+            <div className="contentss">
+              <h2>Jane Doe</h2>
+              <span>UI & UX Designer</span>
+            </div>
+          </dir>
+          <dir>
+            <div className="contentss">
+              <h2>Alex Smith</h2>
+              <span>CEO Expert</span>
+            </div>
+          </dir>
+          <dir>
+            <div className="contentss">
+              <h2>Emily New</h2>
+              <span>Web Designer</span>
+            </div>
+          </dir>
+          <dir>
+            <div className="contentss">
+              <h2>Lisa Boley</h2>
+              <span>Marketing Coordinator</span>
+            </div>
+          </dir>
+        </div>
+    </div>
+</div>
+
+
+
+
+          
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="#"
