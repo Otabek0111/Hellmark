@@ -1,84 +1,83 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getMatchup, createVote } from '../utils/api';
+// import { useState, useEffect } from 'react';
+// import { useParams, Link } from 'react-router-dom';
+// import { getMatchup, createVote } from '../utils/api';
 
-import products from '../productsStore';
-console.log(products);
+// import products from '../productsStore';
+// console.log(products);
 
-// Uncomment import statements below after building queries and mutations
-// import { useQuery, useMutation } from '@apollo/client';
-// import { CREATE_VOTE } from '../utils/mutations';
-// import { QUERY_MATCHUPS } from '../utils/queries';
 
-// const Shop = () => {
-//   const [matchup, setMatchup] = useState({});
-//   let { id } = useParams();
+
+// function Shop(){
+//   return (
+//     <h1> Welcome to the Card Store! </h1>
+//   )
+// }
+
+// export default Shop;
+
+// import React, { useState, useEffect } from 'react';
+
+// function Shop() {
+//   const [products, setProducts] = useState([]);
 
 //   useEffect(() => {
-//     const getMatchupInfo = async () => {
-//       try {
-//         const res = await getMatchup(id);
-//         if (!res.ok) {
-//           throw new Error('No matchup');
+//     fetch('/api/products')
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error('Network response was not ok');
 //         }
-//         const matchup = await res.json();
-//         setMatchup(matchup);
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     };
-//     getMatchupInfo();
-//   }, [id]);
-
-//   const handleVote = async (techNum) => {
-//     try {
-//       const res = await createVote({ id, techNum });
-
-//       if (!res.ok) {
-//         throw new Error('Could not vote');
-//       }
-
-//       const matchup = await res.json();
-//       console.log(matchup);
-//       setMatchup(matchup);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
+//         return response.json();
+//       })
+//       .then((data) => setProducts(data))
+//       .catch((error) => console.error('Error fetching products:', error));
+//   }, []);
 
 //   return (
-//     <div className="card bg-white card-rounded w-50">
-//       <div className="card-header bg-dark text-center">
-//         <h1>Here is the matchup!</h1>
-//       </div>
-//       <div className="card-body text-center mt-3">
-//         <h2>
-//           {matchup.tech1} vs. {matchup.tech2}
-//         </h2>
-//         <h3>
-//           {matchup.tech1_votes} : {matchup.tech2_votes}
-//         </h3>
-//         <button className="btn btn-info" onClick={() => handleVote(1)}>
-//           Vote for {matchup.tech1}
-//         </button>{' '}
-//         <button className="btn btn-info" onClick={() => handleVote(2)}>
-//           Vote for {matchup.tech2}
-//         </button>
-//         <div className="card-footer text-center m-3">
-//           <br></br>
-//           <Link to="/">
-//             <button className="btn btn-lg btn-danger">View all matchups</button>
-//           </Link>
-//         </div>
+//     <div>
+//       <h1>Welcome to the Card Store!</h1>
+//       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+//         {products.map((product) => (
+//           <div key={product.id} style={{ margin: '10px', border: '1px solid #ddd', padding: '10px', display: 'flex', flexDirection: 'column' }}>
+//             <h3>{product.title}</h3>
+//             <p>${product.price}</p>
+//             <button onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
+//           </div>
+//         ))}
 //       </div>
 //     </div>
 //   );
-// };
+// }
 
-function Shop(){
+// export default Shop;
+
+
+
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import products from '../productsStore';
+
+function Shop() {
+  const addToCartHandler = (productId) => {
+    // You can implement the logic to add the product to the cart here
+    console.log(`Product added to cart with ID: ${productId}`);
+  };
+
   return (
-    <h1> Welcome to the Card Store! </h1>
-  )
+    <div>
+      <h1>Welcome to the Card Store!</h1>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {products.map((product) => (
+          <div key={product.id} style={{ margin: '10px', border: '1px solid #ddd', padding: '10px', display: 'flex', flexDirection: 'column' }}>
+            <h3>{product.title}</h3>
+            <img src={product.image} alt={product.title} style={{ maxWidth: '100%', maxHeight: '150px' }} />
+            <p>${product.price}</p>
+            <button onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Shop;
+
