@@ -149,25 +149,25 @@ const Home = () => {
               <div className="boxx">
           <dir>
             <div className="contentss">
-              <h2>Jane Doe</h2>
+              <h2>STD</h2>
               <span>UI & UX Designer</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
-              <h2>Alex Smith</h2>
+              <h2>Break Up </h2>
               <span>CEO Expert</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
-              <h2>Emily New</h2>
+              <h2>TG Uninvite</h2>
               <span>Web Designer</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
-              <h2>Lisa Boley</h2>
+              <h2>Second Family</h2>
               <span>Marketing Coordinator</span>
             </div>
           </dir>
