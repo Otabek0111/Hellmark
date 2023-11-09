@@ -1,5 +1,6 @@
 import './App.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Routes, Route } from 'react-router-dom';
+import Shop from './pages/Shop';
 
 // Uncomment import statement below after building queries and mutations
 // import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
@@ -7,7 +8,13 @@ import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <div className="flex-column justify-center align-center min-100-vh">
-      <Outlet />
+      {/* <Outlet /> */}
+      <Outlet>
+        <Routes>
+          <Route index element={<Shop />}/>
+        </Routes>
+      </Outlet>
+    
     </div>
   );
 }
