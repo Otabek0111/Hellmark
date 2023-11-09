@@ -3,6 +3,7 @@ const express = require('express');
 // const { ApolloServer } = require('@apollo/server');
 // const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
+const mongoose = require('mongoose');
 
 // Uncomment the following code once you have built the queries and mutations in the client folder
 // const { typeDefs, resolvers } = require('./schemas');
