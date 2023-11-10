@@ -4,6 +4,7 @@ import { getAllMatchups } from '../utils/api';
 
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Navbar from '../components/Navbar';
 
 
 // Uncomment import statements below after building queries and mutations
@@ -21,12 +22,12 @@ const navigation = [
 
 const Home = () => {
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
 
     <div className="">
-    <header className="absolute inset-x-0 top-0 z-50">
+    {/* <header className="absolute inset-x-0 top-0 z-50">
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5 ">
@@ -111,8 +112,8 @@ const Home = () => {
           </div>
         </Dialog.Panel>
       </Dialog>
-    </header>
-
+    </header> */}
+    <Navbar/>
     <div className="relative isolate px-6 pt-14 lg:px-8">
       <div
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
