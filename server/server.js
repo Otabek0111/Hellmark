@@ -4,6 +4,8 @@ const express = require('express');
 // const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const mongoose = require('mongoose');
+require('dotenv').config();
+const session = require('express-session');
 
 // Uncomment the following code once you have built the queries and mutations in the client folder
 // const { typeDefs, resolvers } = require('./schemas');
@@ -27,6 +29,13 @@ const app = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: 'auto' } 
+  }));
+
   // Uncomment the following code once you have built the queries and mutations in the client folder
   // app.use('/graphql', expressMiddleware(server));
 
