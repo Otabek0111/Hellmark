@@ -3,14 +3,6 @@
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 
-
-function verifyTokenAndInjectUser(req, res, next) {
-  const token = req.header('x-auth-token');
-
-  if (!token) {
-    return res.status(401).json({message: 'User not found!'})
-  }
-}
 module.exports = { //creates new user with given details after hashing password
   async register(req, res) {
     try {
@@ -44,7 +36,6 @@ module.exports = { //creates new user with given details after hashing password
     }
   },
 
-  // User logout
   async logout(req, res) {
     if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -68,20 +59,4 @@ module.exports = { //creates new user with given details after hashing password
     }
     
   }
-
-  },
-  
-  async updateUserProfile({ user, body }, res) { //updates profile of currently logged in user
-    try {
-      const updatedUser = await User.findByIdAndUpdate(user.id, body, { new: true });
-      if (!updatedUser) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      res.status(200).json(updatedUser);
-    } catch (error) {
-      res.status(400).json({ message: 'Unable to update user profile', error });
-    }
-  },
-
-  verifyTokenAndInjectUser,
 };
