@@ -7,6 +7,13 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'yourSecretKey'; // insert secret key here (store as environment variable)
 //need middleware to verify token & inject user object into request before accessing getUserProfile & updateUserInformation
 
+function verifyTokenAndInjectUser(req, res, next) {
+  const token = req.header('x-auth-token');
+
+  if (!token) {
+    return res.status(401).json({message: 'User not found!'})
+  }
+}
 module.exports = { //creates new user with given details after hashing password
   async register({ body }, res) {
     try {
@@ -63,4 +70,6 @@ module.exports = { //creates new user with given details after hashing password
       res.status(400).json({ message: 'Unable to update user profile', error });
     }
   },
+
+  verifyTokenAndInjectUser,
 };
