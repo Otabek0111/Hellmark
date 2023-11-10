@@ -9,6 +9,9 @@ router.post('/register', userController.register);
 // POST request for user login
 router.post('/login', userController.login);
 
+//middleware to verify the token
+router.use(useController.verifyTokenAndInjectUser);
+
 // GET request for user profile, this should be protected so only the profile owner can access it
 router.get('/profile', userController.getUserProfile);
 
