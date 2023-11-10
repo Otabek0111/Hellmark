@@ -9,13 +9,17 @@ router.post('/register', userController.register);
 // POST request for user login
 router.post('/login', userController.login);
 
+
+router.post('/logout', userController.logout);
+
 //middleware to verify the token
 router.use(useController.verifyTokenAndInjectUser);
 
 // GET request for user profile, this should be protected so only the profile owner can access it
 router.get('/profile', userController.getUserProfile);
 
-// PUT request to update user profile, also protected
-router.put('/profile', userController.updateUserProfile);
+
+// GET request for user profile, this should be protected so only the profile owner can access it
+router.get('/:email', userController.getUserProfile);
 
 module.exports = router;

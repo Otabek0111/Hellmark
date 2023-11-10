@@ -24,4 +24,17 @@ async function seedProducts () {
   }
 }
 
+async function seedUsers() {
+  try {
+    // await Product.deleteMany();
+    await User.insertMany(userData);
+
+  } catch (error) {
+    console.log(error);
+  } finally {
+    db.close();
+  }
+}
+
 seedProducts();
+seedUsers();

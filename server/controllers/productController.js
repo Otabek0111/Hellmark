@@ -28,7 +28,7 @@ module.exports = {
   async getProductById({ params }, res) {
     try {
       console.log(params.id);
-      const product = await Product.find({title: params.title});
+      const product = await Product.find({id: params.id});
       if (!product) {
         return res.status(404).json({ message: 'Product not found' });
       }
@@ -41,7 +41,7 @@ module.exports = {
   // Update a product by ID
   async updateProduct({ params, body }, res) {
     try {
-      const product = await Product.findByIdAndUpdate({title: params.title}, body, { new: true });
+      const product = await Product.findByIdAndUpdate({id: params.id}, body, { new: true });
       if (!product) {
         return res.status(404).json({ message: 'Product not found' });
       }
@@ -54,7 +54,7 @@ module.exports = {
   // Delete a product by ID
   async deleteProduct({ params }, res) {
     try {
-      const product = await Product.findByIdAndDelete({title: params.title});
+      const product = await Product.findByIdAndDelete({id: params.id});
       if (!product) {
         return res.status(404).json({ message: 'Product not found' });
       }
