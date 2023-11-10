@@ -1,19 +1,88 @@
 const cardArray = [
-    {id: "1",
-    title: "Card 1",
-    price: 3.00
-
-},
-{id: "2",
-    title: "Card 2",
-    price: 3.00
-
-},
-{id: "3",
-    title: "Card 3",
-    price: 3.00
-
-},
+    {
+        id: '1',
+        title: 'STD card',
+        description: 'Let a partner know that they might have chlamydia',
+        price: 5,
+        image:'/images/1-std.png',
+      },
+      {
+        id: '2',
+        title: 'Crash Car',
+        description: 'Let someone know you crashed their car',
+        price: 5,
+        image: '/images/2-car-crash.png',
+      },
+      {
+        id: '3',
+        title: 'Breakup',
+        description: 'Breakup with someone the unclassy way',
+        price: 5,
+        image: '/images/3-breakup.png',
+      },
+      {
+        id: '4',
+        title: 'Cheating',
+        description: 'For when someone gets caught cheating',
+        price: 5,
+        image: '/images/4-cheating.png',
+      },
+      {
+        id: '5',
+        title: 'Im Gay',
+        description: 'Creative way to get out of the closet',
+        price: 5,
+        image: '/images/5-dad.png',
+      },
+      {
+        id: '6',
+        title: 'Thanksgiving Invite',
+        description: 'Uninvite someone to Thanksgiving',
+        price: 5,
+        image: '/images/6-thanksgiving-invite.png',
+      },
+      {
+        id: '7',
+        title: 'Second Family',
+        description: 'When you find out you have more siblings than you think',
+        price: 5,
+        image: '/images/7-second-family.png',
+      },
+      {
+        id: '8',
+        title: 'Size Me Up',
+        description: 'Size does matter',
+        price: 5,
+        image: '/images/8-size-me-up.png',
+      },
+      {
+        id: '9',
+        title: 'Owe Money',
+        description: 'Pay your debt!',
+        price: 5,
+        image: '/images/9-owe-money.png',
+      },
+      {
+        id: '10',
+        title: 'Backstabbers',
+        description: 'Nice in front of you, mean Karen behind your back',
+        price: 5,
+        image: '/images/10-backstabbers.png',
+      },
+      {
+        id: '11',
+        title: 'Christmas Card',
+        description: 'High at dinner',
+        price: 5,
+        image: '/images/11-christmas-card.png',
+      },
+      {
+        id: '12',
+        title: 'Marriage quote',
+        description: 'How long will a marriage last?',
+        price: 5,
+        image: '/images/12-marriage-quote.png',
+      },
 ]
 
 export default  cardArray;
