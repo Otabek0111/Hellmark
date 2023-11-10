@@ -2,47 +2,56 @@
 
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
-const secretKey = 'yourSecretKey'; // insert secret key here (store as environment variable)
-//need middleware to verify token & inject user object into request before accessing getUserProfile & updateUserInformation
 
 module.exports = { //creates new user with given details after hashing password
-  async register({ body }, res) {
+  async register(req, res) {
     try {
-      // Hash the password
-      const hashedPassword = await bcrypt.hash(body.password, 12);
-      // Create user with hashed password
-      const user = await User.create({ ...body, password: hashedPassword });
-      res.status(201).json(user);
+      const newUser = new User(req.body);
+      await newUser.save();
+      res.status(201).json({ message: 'User registered successfully', user: newUser });
     } catch (error) {
-      res.status(400).json({ message: 'Unable to register user', error });
+      res.status(400).json({ message: 'Error registering user', error: error.message });
     }
   },
-  
-  async login({ body }, res) { //authenticates user by comparing the given password with the one stored in the database and returns a JWT token upon success
+
+  // User login
+  async login(req, res) {
     try {
-      const user = await User.findOne({ email: body.email });
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
       if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Incorrect email or password' });
       }
-      // Check password
-      const isMatch = await bcrypt.compare(body.password, user.password);
+
+      const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Incorrect email or password' });
       }
-      // Create token
-      const token = jwt.sign({ id: user._id }, secretKey, { expiresIn: '1h' });
-      res.status(200).json({ token });
+
+      req.session.user_id = user._id;
+      req.session.logged_in = true;
+      res.json({ message: 'You are now logged in!', user });
     } catch (error) {
-      res.status(400).json({ message: 'Unable to log in', error });
+      res.status(400).json({ message: 'Error logging in', error: error.message });
     }
   },
-  
-  async getUserProfile({ user }, res) { //retrieves profile of currently logged-in user
+
+  // User logout
+  async logout(req, res) {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).send('No active session');
+    }
+  },
+
+  async getUserProfile({ params }, res) { //retrieves profile of currently logged-in user
     try {
       // auth middleware inject here?
-      const userProfile = await User.findById(user.id);
+      const userProfile = await User.find({ email: params.email });
       if (!userProfile) {
         return res.status(404).json({ message: 'User not found' });
       }
@@ -50,17 +59,5 @@ module.exports = { //creates new user with given details after hashing password
     } catch (error) {
       res.status(400).json({ message: 'Unable to fetch user profile', error });
     }
-  },
-  
-  async updateUserProfile({ user, body }, res) { //updates profile of currently logged in user
-    try {
-      const updatedUser = await User.findByIdAndUpdate(user.id, body, { new: true });
-      if (!updatedUser) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      res.status(200).json(updatedUser);
-    } catch (error) {
-      res.status(400).json({ message: 'Unable to update user profile', error });
-    }
-  },
+  }
 };
