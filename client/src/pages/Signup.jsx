@@ -1,8 +1,40 @@
-import React from "react";
-// import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-const Signup = () => {
+import React, { useState } from 'react';
+import { registerUser } from '../utils/api';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection after signup
 
-    return (
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await registerUser(formData);
+      if (response.ok) {
+        // Assuming the API response includes some indication of success
+        navigate('/login'); // Redirect to login page after successful signup
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message); // Set the error message from the response
+      }
+    } catch (err) {
+      setError('Failed to sign up. Please try again later.');
+    }
+  };
+
+  return (
 
         <div className="flex w-1/2 mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -28,6 +60,8 @@ const Signup = () => {
                   id="email"
                   name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   autoComplete="email"
                   placeholder="Email address"
                   required
@@ -48,6 +82,8 @@ const Signup = () => {
                   id="password"
                   name="password"
                   type="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                   autoComplete="current-password"
                   placeholder="Password"
                   required

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser } from '../utils/api';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -8,7 +8,7 @@ const Login = () => {
     password: ''
   });
   const [error, setError] = useState('');
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,7 +24,7 @@ const Login = () => {
         const data = await response.json();
         localStorage.setItem('user_id', data.user._id);
         localStorage.setItem('logged_in', true);
-        history.push('/'); // Redirect to home page or dashboard
+        Navigate('/') // Redirect to home page or dashboard
       } else {
         const errorData = await response.json();
         setError(errorData.message);
