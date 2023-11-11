@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; // Fixed useEffect
 import Layout from '../components/Layout';
-import { getProducts } from '../utils/api';
+import { getAllProducts } from '../utils/api';
 import Cart from './Cart';
 
 const Shop = () => {
@@ -13,7 +13,7 @@ const Shop = () => {
 
   useEffect(() => {
     // Fetch products when the component is mounted
-    getProducts()
+    getAllProducts()
       .then(data => {
         setProducts(data); // Set the products in the state
         setIsLoading(false); // Loading is complete

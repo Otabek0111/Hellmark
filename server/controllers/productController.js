@@ -25,10 +25,10 @@ module.exports = {
   },
 
   // Get a single product by ID
-  async getProductById({ params }, res) {
+  async getProductByTitle({ params }, res) {
     try {
-      console.log(params.id);
-      const product = await Product.find({id: params.id});
+      console.log(params.title);
+      const product = await Product.find({title: params.title});
       if (!product) {
         return res.status(404).json({ message: 'Product not found' });
       }
@@ -37,30 +37,4 @@ module.exports = {
       res.status(400).json({ message: 'Unable to find product', error });
     }
   },
-
-  // Update a product by ID
-  async updateProduct({ params, body }, res) {
-    try {
-      const product = await Product.findByIdAndUpdate({id: params.id}, body, { new: true });
-      if (!product) {
-        return res.status(404).json({ message: 'Product not found' });
-      }
-      res.status(200).json(product);
-    } catch (error) {
-      res.status(400).json({ message: 'Unable to update product', error });
-    }
-  },
-
-  // Delete a product by ID
-  async deleteProduct({ params }, res) {
-    try {
-      const product = await Product.findByIdAndDelete({id: params.id});
-      if (!product) {
-        return res.status(404).json({ message: 'Product not found' });
-      }
-      res.status(200).json({ message: 'Product successfully deleted' });
-    } catch (error) {
-      res.status(400).json({ message: 'Unable to delete product', error });
-    }
-  },
-};
+}

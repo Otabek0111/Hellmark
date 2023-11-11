@@ -1,8 +1,7 @@
-const BASE_URL = 'http://localhost:3001/api'; // Replace with your actual server URL
+const BASE_URL = 'http://localhost:3001/api';
 
-// Helper to generate headers objec
 
-export const getProducts = () => {
+export const getAllProducts = () => {
   return fetch(`${BASE_URL}/products`, {
     method: 'GET',
     headers: {
@@ -30,24 +29,24 @@ export const getProductByTitle = (title) => {
   });
 };
 
-export const updateProductByTitle = (title, updateData) => {
-  return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updateData),
-  });
-};
+// export const updateProductByTitle = (title, updateData) => {
+//   return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(updateData),
+//   });
+// };
 
-export const deleteProductByTitle = (title) => {
-  return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
-    method: 'DELETE',
-    headers:{
-      'Content-Type': 'application/json',
-    },
-  });
-};
+// export const deleteProductByTitle = (title) => {
+//   return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
+//     method: 'DELETE',
+//     headers:{
+//       'Content-Type': 'application/json',
+//     },
+//   });
+// };
 
 export const registerUser = (userData) => {
   return fetch(`${BASE_URL}/users/register`, {
