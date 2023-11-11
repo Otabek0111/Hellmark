@@ -1,4 +1,4 @@
-import React, { useState, userEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // Fixed useEffect
 import Layout from '../components/Layout';
 import { getProducts } from '../utils/api';
 import Cart from './Cart';
@@ -7,6 +7,9 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  // You need to define the state for cartItems and open if you're using them for Cart component
+  const [cartItems, setCartItems] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Fetch products when the component is mounted
@@ -21,12 +24,22 @@ const Shop = () => {
       });
   }, []);
 
+  // Define addToCartHandler function if it's being used
+  const addToCartHandler = (productId) => {
+    // Logic to add product to cart
+    // For example, you might want to find the product by ID and then set it in cartItems state
+    const productToAdd = products.find(product => product.id === productId);
+    if (productToAdd) {
+      setCartItems(prevItems => [...prevItems, productToAdd]);
+    }
+  };
+
   if (isLoading) {
-    return <div>Loading...</div>; // Display a loading text or spinner graphic
+    return <Layout><div>Loading...</div></Layout>; // Wrap loading in Layout for consistent styling
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Display an error message
+    return <Layout><div>Error: {error}</div></Layout>; // Wrap error in Layout as well
   }
 
   return (
@@ -42,7 +55,6 @@ const Shop = () => {
             </div>
           ))}
         </div>
-        {/* Pass setCartItems as updateCart prop to Cart component */}
         <Cart open={open} setOpen={setOpen} cartItems={cartItems} updateCart={setCartItems} />
       </div>
     </Layout>
@@ -50,7 +62,3 @@ const Shop = () => {
 }
 
 export default Shop;
-
-
-
-
