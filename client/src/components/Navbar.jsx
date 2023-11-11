@@ -11,8 +11,10 @@ const Navbar = () => {
 const navigation = [
     { name: 'About Us', href: '/AboutUs' },
     { name: 'Shop', href: '/Shop' },
-    { name: 'Cart', href: '/Cart' },
+
     { name: 'Sign Up', href: '/Signup' },
+    { name: 'Log In', href: '/Login' },
+
     
   ]
 
@@ -24,7 +26,7 @@ return (
         <a href="#" className="-m-1.5 p-1.5 ">
           <span className="sr-only ">Hellmark</span>
           <img
-            className="h-20 w-auto"
+            className="h-20 w-auto rounded-full"
             src="./src/assets/hellmark.png"
             alt=""
           />
@@ -52,20 +54,18 @@ return (
         ))}
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Log in <span aria-hidden="true">&rarr;</span>
-        </a>
+            {/* makes the nav bar stay in the middle */}
       </div>
     </nav>
     <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
       <div className="fixed inset-0 z-50" />
-      <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-primaryBlue px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Hellmark</span>
             <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              className="h-8 w-auto rounded-lg"
+              src="./src/assets/hellmark.png"
               alt=""
             />
           </a>
@@ -96,7 +96,7 @@ return (
                 href="#"
                 className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
-                Log in
+                Login 
               </a>
             </div>
           </div>
