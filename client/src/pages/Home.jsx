@@ -7,6 +7,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Navbar from '../components/Navbar';
 
 
+
 // Uncomment import statements below after building queries and mutations
 // import { useQuery } from '@apollo/client';
 // import { QUERY_MATCHUPS } from '../utils/queries';
@@ -15,7 +16,8 @@ const navigation = [
   { name: 'About Us', href: '/AboutUs' },
   { name: 'Shop', href: '/Shop' },
   { name: 'Cart', href: '/Cart' },
-  { name: 'Sign Up', href: '#Marketplace' },
+  { name: 'Sign Up', href: '/Signup' },
+  { name: 'Log In', href: '/Login' },
   
 ]
 
@@ -183,13 +185,11 @@ const Home = () => {
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="#"
-              className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-md bg-black-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Get started
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
+
           </div>
         </div>
       </div>
