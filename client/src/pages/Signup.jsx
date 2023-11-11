@@ -1,43 +1,25 @@
 import React from "react";
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+// import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 const Signup = () => {
 
     return (
 
-        <div className="flex w-1/2 min-h-full flex-1 flex-row justify-center px-6 py-12 lg:px-8">
+        <div className="flex w-1/2 mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
-            className="mx-auto h-14 w-auto rounded-full justify-items-start"
+            className="mx-auto h-50 w-auto rounded-full justify-items-start"
             src="./src/assets/hellmark.png"
             alt="Your Company"
           />
 
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign Up Here
-          </h2>
-          
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-1 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-
-            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Name
-              </label>
-            <div className="mt-2">
-                <input
-                  id="name"
-                  name="input"
-                  type="input"
-                  autoComplete="input"
-                    placeholder="John"
-                  required
-                  className="block w-full rounded-md border-0 px-1.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-
-
+            <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Sign Up Here
+          </h2>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
