@@ -1,8 +1,39 @@
-import React from "react";
-// import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-const Signup = () => {
+import React, { useState } from 'react';
+import { signup } from '../utils/api';
+import { useNavigate } from 'react-router-dom'; 
 
-    return (
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); 
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await signup(formData);
+      if (response.ok) {
+        // Assuming the API response includes some indication of success
+        navigate('/Shop');
+        const errorData = await response.json();
+        setError(errorData.message); // Set the error message from the response
+      }
+    } catch (err) {
+      setError('Failed to sign up. Please try again later.');
+    }
+  };
+
+  return (
 
         <div className="flex w-1/2 mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -15,7 +46,7 @@ const Signup = () => {
         </div>
 
         <div className="mt-1 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
             <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign Up Here
@@ -28,6 +59,8 @@ const Signup = () => {
                   id="email"
                   name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   autoComplete="email"
                   placeholder="Email address"
                   required
@@ -48,6 +81,8 @@ const Signup = () => {
                   id="password"
                   name="password"
                   type="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                   autoComplete="current-password"
                   placeholder="Password"
                   required
@@ -65,7 +100,6 @@ const Signup = () => {
               </button>
             </div>
           </form>
-
         </div>
       </div>
     );

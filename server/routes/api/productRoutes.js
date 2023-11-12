@@ -9,12 +9,12 @@ router.post('/', productController.createProduct);
 router.get('/', productController.getAllProducts);
 
 // Route to get a single product by ID
-router.get('/:title', productController.getProductById);
+router.get('/:title', productController.getProductByTitle);
 
 // Route to update a product by ID
-router.put('/:title', productController.updateProduct);
+// router.put('/:title', productController.updateProduct);
 
 // Route to delete a product by ID
-router.delete('/:title', productController.deleteProduct);
+// router.delete('/:title', productController.deleteProduct);
 
 module.exports = router;

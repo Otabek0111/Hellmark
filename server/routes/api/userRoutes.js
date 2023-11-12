@@ -1,10 +1,10 @@
-// defines routes for user-related operations (registering new user, logging in, user profile operations(?))
+// defines routes for user-related operations (signuping new user, logging in, user profile operations(?))
 const router = require('express').Router();
 const userController = require('../../controllers/userController');
 // const { protect } = require('../middleware/auth');
 
 // POST request for user registration
-router.post('/register', userController.register);
+router.post('/signup', userController.signup);
 
 // POST request for user login
 router.post('/login', userController.login);

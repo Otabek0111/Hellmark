@@ -1,14 +1,13 @@
-const BASE_URL = 'http://localhost:3001/api'; // Replace with your actual server URL
+const BASE_URL = 'http://localhost:3001/api';
 
-// Helper to generate headers objec
 
-export const getProducts = () => {
-  return fetch(`${BASE_URL}/products`, {
+export const getAllProducts = async () => {
+  return  await fetch(`${BASE_URL}/products`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }).then(response => response.json());
 };
 
 export const createProduct = (productData) => {
@@ -30,27 +29,27 @@ export const getProductByTitle = (title) => {
   });
 };
 
-export const updateProductByTitle = (title, updateData) => {
-  return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updateData),
-  });
-};
+// export const updateProductByTitle = (title, updateData) => {
+//   return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(updateData),
+//   });
+// };
 
-export const deleteProductByTitle = (title) => {
-  return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
-    method: 'DELETE',
-    headers:{
-      'Content-Type': 'application/json',
-    },
-  });
-};
+// export const deleteProductByTitle = (title) => {
+//   return fetch(`${BASE_URL}/products/${encodeURIComponent(title)}`, {
+//     method: 'DELETE',
+//     headers:{
+//       'Content-Type': 'application/json',
+//     },
+//   });
+// };
 
-export const registerUser = (userData) => {
-  return fetch(`${BASE_URL}/users/register`, {
+export const signup = (userData) => {
+  return fetch(`${BASE_URL}/users/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +58,7 @@ export const registerUser = (userData) => {
   });
 };
 
-export const loginUser = (credentials) => {
+export const login = (credentials) => {
   return fetch(`${BASE_URL}/users/login`, {
     method: 'POST',
     headers: {
@@ -69,7 +68,7 @@ export const loginUser = (credentials) => {
   });
 };
 
-export const logoutUser = () => {
+export const logout = () => {
   return fetch(`${BASE_URL}/users/logout`, {
     method: 'POST',
     headers: {

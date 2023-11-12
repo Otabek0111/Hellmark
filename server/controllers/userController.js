@@ -1,16 +1,16 @@
-//registers user, logs in, fetches user profile, updates user profile
+//signups user, logs in, fetches user profile, updates user profile
 
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 
 module.exports = { //creates new user with given details after hashing password
-  async register(req, res) {
+  async signup(req, res) {
     try {
       const newUser = new User(req.body);
       await newUser.save();
-      res.status(201).json({ message: 'User registered successfully', user: newUser });
+      res.status(201).json({ message: 'User signed up successfully', user: newUser });
     } catch (error) {
-      res.status(400).json({ message: 'Error registering user', error: error.message });
+      res.status(400).json({ message: 'Error signing up user', error: error.message });
     }
   },
 
