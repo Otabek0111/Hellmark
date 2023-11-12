@@ -1,10 +1,12 @@
 import React from "react";
+import Layout from "../components/Layout";
+
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 const Signup = () => {
 
     return (
-
-        <div className="flex w-1/2 mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
+<Layout>
+        <div className="flex w-full mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-50 w-auto rounded-full justify-items-start"
@@ -68,6 +70,7 @@ const Signup = () => {
 
         </div>
       </div>
+      </Layout>
     );
 }
 
