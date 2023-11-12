@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { registerUser } from '../utils/api';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection after signup
+import { signup } from '../utils/api';
+import { useNavigate } from 'react-router-dom'; 
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ const Signup = () => {
     password: ''
   });
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,11 +21,10 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await registerUser(formData);
+      const response = await signup(formData);
       if (response.ok) {
         // Assuming the API response includes some indication of success
-        navigate('/login'); // Redirect to login page after successful signup
-      } else {
+        navigate('/Shop');
         const errorData = await response.json();
         setError(errorData.message); // Set the error message from the response
       }
@@ -47,7 +46,7 @@ const Signup = () => {
         </div>
 
         <div className="mt-1 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
             <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign Up Here
@@ -101,7 +100,6 @@ const Signup = () => {
               </button>
             </div>
           </form>
-
         </div>
       </div>
     );

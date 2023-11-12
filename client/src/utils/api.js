@@ -1,13 +1,13 @@
 const BASE_URL = 'http://localhost:3001/api';
 
 
-export const getAllProducts = () => {
-  return fetch(`${BASE_URL}/products`, {
+export const getAllProducts = async () => {
+  return  await fetch(`${BASE_URL}/products`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }).then(response => response.json());
 };
 
 export const createProduct = (productData) => {
@@ -48,8 +48,8 @@ export const getProductByTitle = (title) => {
 //   });
 // };
 
-export const registerUser = (userData) => {
-  return fetch(`${BASE_URL}/users/register`, {
+export const signup = (userData) => {
+  return fetch(`${BASE_URL}/users/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const registerUser = (userData) => {
   });
 };
 
-export const loginUser = (credentials) => {
+export const login = (credentials) => {
   return fetch(`${BASE_URL}/users/login`, {
     method: 'POST',
     headers: {
@@ -68,7 +68,7 @@ export const loginUser = (credentials) => {
   });
 };
 
-export const logoutUser = () => {
+export const logout = () => {
   return fetch(`${BASE_URL}/users/logout`, {
     method: 'POST',
     headers: {

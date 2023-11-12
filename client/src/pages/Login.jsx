@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { loginUser } from '../utils/api';
+import { login } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -15,17 +15,16 @@ const Login = () => {
     setCredentials({ ...credentials, [name]: value });
   };
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await loginUser(credentials);
+      const response = await login(credentials);
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('user_id', data.user._id);
         localStorage.setItem('logged_in', true);
-        Navigate('/') // Redirect to home page or dashboard
-      } else {
+        history('/Shop'); 
+
         const errorData = await response.json();
         setError(errorData.message);
       }
@@ -98,7 +97,7 @@ const Login = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Sign In
               </button>
             </div>
 
