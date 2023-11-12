@@ -6,7 +6,7 @@
 }
 
 .carusel {
-  min-height: 40vh;
+  min-height: 50vh;
   display: grid;
   place-items: center;
   font-family: "Ubuntu Mono", monospace;

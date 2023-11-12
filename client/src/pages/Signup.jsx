@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signup } from '../utils/api';
 import { useNavigate } from 'react-router-dom'; 
 
+import Layout from "../components/Layout";
 const Signup = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -34,13 +35,13 @@ const Signup = () => {
   };
 
   return (
-
-        <div className="flex w-1/2 mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
+    <Layout>
+        <div className="flex w-full mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-50 w-auto rounded-full justify-items-start"
             src="./src/assets/hellmark.png"
-            alt="Your Company"
+            alt="Hellmark"
           />
 
         </div>
@@ -49,7 +50,7 @@ const Signup = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
             <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign Up Here
+            Sign Up Here 
           </h2>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
@@ -102,6 +103,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
+    </Layout>
     );
 }
 

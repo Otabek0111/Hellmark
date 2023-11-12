@@ -50,8 +50,8 @@ const Home = () => {
           We make cards for those moments that are too awkward to have in person.
           </p>
           
-          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-rose-900 ring- ring-gray-900/10 hover:ring-gray-900/20 ">
-          Disclaimer: Adult Content.{' '}
+          <div className="relative rounded-full px-3 py-1 text-m leading-6 text-rose-900 ring- ring-gray-900/10 hover:ring-gray-900/20 ">
+          Disclaimer: Adult Content{' '}
           </div>
 
 

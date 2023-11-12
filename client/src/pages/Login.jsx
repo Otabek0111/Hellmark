@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { login } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
+import Layout from "../components/Layout";
+
 const Login = () => {
   const [credentials, setCredentials] = useState({
     email: '',
@@ -34,23 +36,25 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="flex w-1/2 min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    
+        <Layout>
+        <div className="flex w-full mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
-            className="mx-auto h-14 w-auto rounded-full justify-items-start"
+            className="mx-auto h-50 w-auto rounded-full justify-items-start"
             src="./src/assets/hellmark.png"
-            alt="Your Company"
+            alt="Hellmark"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Login to your account
-          </h2>
+
           {error && <div className="error text-red-500">{error}</div>}
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-1 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
+            <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Login to your account
+          </h2>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
@@ -104,7 +108,8 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </>
+    </Layout>
+    
   );
 };
 

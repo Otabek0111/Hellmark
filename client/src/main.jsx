@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'; // Use BrowserRouter for clien
 
 import App from './App.jsx';
 import './index.css';
+import '../src/style.css';
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);

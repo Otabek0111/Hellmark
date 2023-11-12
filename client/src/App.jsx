@@ -20,7 +20,7 @@ function App() {
   // If using Apollo Client, wrap the return statement with <ApolloProvider client={client}>
   return (
     // <ApolloProvider client={client}> // Uncomment if using Apollo Client
-    <div className="flex-column justify-center align-center min-100-vh bg-gray-100">
+    <div className="flex-column justify-center align-center min-100-vh bg-primaryBlue">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
