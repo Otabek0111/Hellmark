@@ -8,17 +8,6 @@ require('dotenv').config();
 const session = require('express-session');
 const cors = require('cors');
 
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('MongoDB connected successfully');
-}).catch((err) => {
-  console.error('MongoDB connection error:', err.message);
-});
-
 // Uncomment the following code once you have built the queries and mutations in the client folder
 // const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
