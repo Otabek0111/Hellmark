@@ -44,14 +44,14 @@ const Shop = () => {
 
   return (
     <Layout>
-      <div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className="pt-10">
+        <div className="flex flex-wrap m-20">
           {products.map((product) => (
-            <div key={product.id} style={{ margin: '10px', border: '1px solid #ddd', padding: '10px', display: 'flex', flexDirection: 'column' }}>
-              <h3>{product.title}</h3>
-              <img src={product.image} alt={product.title} style={{ maxWidth: '100%', maxHeight: '150px' }} />
+            <div key={product.id} className="mt-5 shadow-xl rounded-xl "  style={{ margin: '10px', border: '1px solid #ddd', padding: '10px', display: 'flex', flexDirection: 'column' }}>
+              <h3 className="text-center m-3">{product.title}</h3>
+              <img src={product.image} alt={product.title} className="rounded-lg" style={{ maxWidth: '100%', maxHeight: '150px' }} />
               <p>${product.price}</p>
-              <button onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
+              <button className='bg-blue-100 m-5 rounded-lg' onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
             </div>
           ))}
         </div>
