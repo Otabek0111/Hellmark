@@ -1,64 +1,46 @@
-// import React, { Fragment, useState } from 'react';
-// import Layout from '../components/Layout';
-// import { Link } from 'react-router-dom';
-// import products from '../productsStore';
-// import Cart from './Cart';
-
-// function Shop() {
-//   const [open, setOpen] = useState(false);
-//   const [cartItems, setCartItems] = useState([]);
-
-//   const addToCartHandler = (productId) => {
-//     // Find the product by ID
-//     const productToAdd = products.find((product) => product.id === productId);
-
-//     // Add the product to the cartItems array
-//     setCartItems((prevItems) => [...prevItems, productToAdd]);
-
-//     setOpen(true);
-//   };
-
-//   return (
-// <Layout>
-//     <div>
-      
-//       {/* <h1>Welcome to the Card Store!</h1> */}
-//       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-//         {products.map((product) => (
-//           <div key={product.id} style={{ margin: '10px', border: '1px solid #ddd', padding: '10px', display: 'flex', flexDirection: 'column' }}>
-//             <h3>{product.title}</h3>
-//             <img src={product.image} alt={product.title} style={{ maxWidth: '100%', maxHeight: '150px' }} />
-//             <p>${product.price}</p>
-//             <button onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
-//           </div>
-//         ))}
-//       </div>
-//       <Cart open={open} setOpen={setOpen} cartItems={cartItems} />
-//     </div>
-//     </Layout>
-//   );
-// }
-
-// export default Shop;
-import React, { Fragment, useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Fixed useEffect
 import Layout from '../components/Layout';
-import { Link } from 'react-router-dom';
-import products from '../productsStore';
+import { getAllProducts } from '../utils/api';
 import Cart from './Cart';
 
-function Shop() {
-  const [open, setOpen] = useState(false);
+const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  // You need to define the state for cartItems and open if you're using them for Cart component
   const [cartItems, setCartItems] = useState([]);
+  const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    // Fetch products when the component is mounted
+    getAllProducts()
+      .then(data => {
+        setProducts(data); // Set the products in the state
+        setIsLoading(false); // Loading is complete
+      })
+      .catch(err => {
+        setError(err.message); // Handle any errors
+        setIsLoading(false);
+      });
+  }, []);
+
+  // Define addToCartHandler function if it's being used
   const addToCartHandler = (productId) => {
-    // Find the product by ID
-    const productToAdd = products.find((product) => product.id === productId);
-
-    // Add the product to the cartItems array
-    setCartItems((prevItems) => [...prevItems, productToAdd]);
-
-    setOpen(true);
+    // Logic to add product to cart
+    // For example, you might want to find the product by ID and then set it in cartItems state
+    const productToAdd = products.find(product => product.id === productId);
+    if (productToAdd) {
+      setCartItems(prevItems => [...prevItems, productToAdd]);
+    }
   };
+
+  if (isLoading) {
+    return <Layout><div>Loading...</div></Layout>; // Wrap loading in Layout for consistent styling
+  }
+
+  if (error) {
+    return <Layout><div>Error: {error}</div></Layout>; // Wrap error in Layout as well
+  }
 
   return (
     <Layout>
@@ -73,7 +55,6 @@ function Shop() {
             </div>
           ))}
         </div>
-        {/* Pass setCartItems as updateCart prop to Cart component */}
         <Cart open={open} setOpen={setOpen} cartItems={cartItems} updateCart={setCartItems} />
       </div>
     </Layout>
@@ -81,7 +62,3 @@ function Shop() {
 }
 
 export default Shop;
-
-
-
-

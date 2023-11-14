@@ -23,7 +23,7 @@ return (
     <header className="absolute inset-x-0 top-0 z-50">
     <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div className="flex lg:flex-1">
-        <a href="#" className="-m-1.5 p-1.5 ">
+        <a href="/" className="-m-1.5 p-1.5 ">
           <span className="sr-only ">Hellmark</span>
           <img
             className="h-20 w-auto rounded-full"
@@ -31,7 +31,7 @@ return (
             alt=""
           />
         </a>
-        <a href="#" className="hidden lg:flex lg:items-center lg:ml-6 text-3xl font-semibold leading-6 text-gray-900">
+        <a href="/" className="hidden lg:flex lg:items-center lg:ml-6 text-3xl font-semibold leading-6 text-gray-900">
           Hellmark
         </a>
       </div>

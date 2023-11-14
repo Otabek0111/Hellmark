@@ -50,8 +50,8 @@ const Home = () => {
           We make cards for those moments that are too awkward to have in person.
           </p>
           
-          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-rose-900 ring- ring-gray-900/10 hover:ring-gray-900/20 ">
-          Disclaimer: Adult Content.{' '}
+          <div className="relative rounded-full px-3 py-1 text-m leading-6 text-rose-900 ring- ring-gray-900/10 hover:ring-gray-900/20 ">
+          Disclaimer: Adult Content{' '}
           </div>
 
 
@@ -63,25 +63,25 @@ const Home = () => {
           <dir>
             <div className="contentss">
               <h2>STD</h2>
-              <span>UI & UX Designer</span>
+              <span>...</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
               <h2>Break Up </h2>
-              <span>CEO Expert</span>
+              <span>...</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
               <h2>TG Uninvite</h2>
-              <span>Web Designer</span>
+              <span>...</span>
             </div>
           </dir>
           <dir>
             <div className="contentss">
               <h2>Second Family</h2>
-              <span>Marketing Coordinator</span>
+              <span>...</span>
             </div>
           </dir>
         </div>
@@ -94,7 +94,7 @@ const Home = () => {
           
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
-              href="#"
+              href="/Shop"
               className="rounded-md bg-black-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Get started
