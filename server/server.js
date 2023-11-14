@@ -47,9 +47,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
   // Uncomment this code once you have built out queries and mutations in the client folder
-  // app.get('*', (req, res) => {
-  // res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  // });
+  app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
 } // closes if (process.env.NODE_ENV === 'production') condition
 
 // Uncomment this code once you have built out queries and mutations in the client folder
