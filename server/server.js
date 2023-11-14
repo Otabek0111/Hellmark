@@ -46,6 +46,8 @@ app.use(routes);
 // (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+express.static.mime.define({'application/javascript': ['js', 'jsx']});
+
 // Uncomment this code once you have built out queries and mutations in the client folder
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
