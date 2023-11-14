@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { signup } from '../utils/api';
 import { useNavigate } from 'react-router-dom'; 
 
 import Layout from "../components/Layout";
+
 const Signup = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -10,6 +12,7 @@ const Signup = () => {
   });
   const [error, setError] = useState('');
   const navigate = useNavigate(); 
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,6 +39,7 @@ const Signup = () => {
 
   return (
     <Layout>
+
         <div className="flex w-full mt-14 flex-1 justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -104,6 +108,7 @@ const Signup = () => {
         </div>
       </div>
     </Layout>
+
     );
 }
 
