@@ -42,15 +42,15 @@ app.use(session({
 // Comment out this code once you have built out queries and mutations in the client folder
 app.use(routes);
 
-// if we're in production, serve client/dist as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+// if we're in production, serve client/dist as static assets 
+// (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
-  // Uncomment this code once you have built out queries and mutations in the client folder
-  app.get('*', (req, res) => {
+// Uncomment this code once you have built out queries and mutations in the client folder
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  });
-} // closes if (process.env.NODE_ENV === 'production') condition
+});
+
 
 // Uncomment this code once you have built out queries and mutations in the client folder
 //   db.once('open', () => {
