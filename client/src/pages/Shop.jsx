@@ -50,8 +50,8 @@ const Shop = () => {
             <div key={product.id} className="mt-5 shadow-xl rounded-xl border-solid border-2 border-sky-200 hover:border-double hover:border-sky-500"  style={{ margin: '10px', padding: '10px', display: 'flex', flexDirection: 'column' }}>
               <h3 className="text-center m-3 text-lg font-medium">{product.title}</h3>
               <img src={product.image} alt={product.title} className="rounded-lg" style={{ maxWidth: '100%', maxHeight: '150px' }} />
-              <p>${product.price}</p>
-              <button className='bg-blue-100 m-5 rounded-lg hover:bg-blue-400' onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
+              <p className='mt-2'> ${product.price}.00</p>
+              <button className='bg-blue-100 m-2 p-2 rounded-lg hover:bg-blue-400' onClick={() => addToCartHandler(product.id)}>Add to Cart</button>
             </div>
           ))}
         </div>
