@@ -7,7 +7,6 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  // You need to define the state for cartItems and open if you're using them for Cart component
   const [cartItems, setCartItems] = useState([]);
   const [open, setOpen] = useState(false);
 

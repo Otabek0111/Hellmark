@@ -1,73 +1,73 @@
 [
     {
-      "title": "STD-card",
-      "description": "Let a partner know that they might have chlamydia",
+      "title": "I'd get tested if I were you...",
+      "description": "The best way to let your partner know that you have the clap!",
       "price": 5,
       "image": "/images/1-std.png"
     },
     {
-      "title": "Crash-Car",
-      "description": "Let someone know you crashed their car",
+      "title": "Hope your insurance covers it...",
+      "description": "Sorry, I crashed your car (in a target parking lot)!",
       "price": 5,
       "image": "/images/2-car-crash.png"
     },
     {
-      "title": "Breakup",
-      "description": "Breakup with someone the unclassy way",
+      "title": "Your boyfriend sucks!",
+      "description": "& I think you should break up with him",
       "price": 5,
       "image": "/images/3-breakup.png"
     },
     {
-      "title": "Cheating",
-      "description": "For when someone gets caught cheating",
+      "title": "Not the secretary!",
+      "description": "Thanks for cheating on me with your secretary!",
       "price": 5,
       "image": "/images/4-cheating.png"
     },
     {
-      "title": "Im-Gay",
-      "description": "Creative way to get out of the closet",
+      "title": "Dad, we need to talk...",
+      "description": "I'm gay!",
       "price": 5,
       "image": "/images/5-dad.png"
     },
     {
-      "title": "Thanksgiving-Invite",
-      "description": "Uninvite someone to Thanksgiving",
+      "title": "Thanksgiving Uninvite",
+      "description": "This'll make family dinner super awkward...",
       "price": 5,
       "image": "/images/6-thanksgiving-invite.png"
     },
     {
-      "title": "Second-Family",
-      "description": "When you find out you have more siblings than you think",
+      "title": "Second is the Best",
+      "description": "That moment when you find out you have more siblings than you think...",
       "price": 5,
       "image": "/images/7-second-family.png"
     },
     {
-      "title": "Size-Me-Up",
-      "description": "Size does matter",
+      "title": "Size Me Up",
+      "description": "Size maybe does matter!",
       "price": 5,
       "image": "/images/8-size-me-up.png"
     },
     {
-      "title": "Owe-Money",
+      "title": "Give me my f*cking money!",
       "description": "Pay your debt!",
       "price": 5,
       "image": "/images/9-owe-money.png"
     },
     {
-      "title": "Backstabbers",
-      "description": "Nice in front of you, mean Karen behind your back",
+      "title": "For the Karens",
+      "description": "For those folks who are nice to your face, but talk trash behind your back.",
       "price": 5,
       "image": "/images/10-backstabbers.png"
     },
     {
-      "title": "Christmas-Card",
-      "description": "High at dinner",
+      "title": "Merry(juana) Christmas",
+      "description": "Sorry about the dog!",
       "price": 5,
       "image": "/images/11-christmas-card.png"
     },
     {
-      "title": "Marriage-quote",
-      "description": "How long will a marriage last?",
+      "title": "Forever and... Always?",
+      "description": "How long will this marriage last?",
       "price": 5,
       "image": "/images/12-marriage-quote.png"
     }

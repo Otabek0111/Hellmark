@@ -16,8 +16,9 @@ const db = mongoose.connection;
 db.once('open', async () => {
   try {
     // await Product.deleteMany();
-    await Product.insertMany(productData);
+
     await User.insertMany(userData);
+    await Product.insertMany(productData);
 
   } catch (error) {
     console.log(error);
